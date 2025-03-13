@@ -19,7 +19,7 @@
         <a href=""><img src="images/icons8-praia-96.png" alt="Logo Marca" width="80px" height="80px"></a>
         <menu>
             <ul>
-                <li><a href="">Inicio</a></li>
+                <li><a href="">Início</a></li>
                 <li><a href="">Catálogo de Produtos</a></li>
                 <li><a href="">Contato</a></li>
             </ul>
