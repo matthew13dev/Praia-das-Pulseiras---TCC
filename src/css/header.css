@@ -1,0 +1,46 @@
+@import url(variables.css);
+
+header{
+    display: flex;
+    justify-content: space-between;
+
+    height: var(--HeaderHeight);
+
+    background-color: darkcyan;
+
+    margin-bottom: 50px;
+}
+
+header .container{
+    display: inherit;
+    flex-direction: row;
+    justify-content:inherit ;
+    align-items: center;
+}
+header .container ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+}
+
+header ul a{
+    height: var(--HeaderHeight);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: transparent;
+    
+
+    transition: all 0.1s linear;
+}
+
+header ul a:hover{
+    background-color: white;
+    color: darkcyan;
+}

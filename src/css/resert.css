@@ -1,0 +1,14 @@
+@import url(variables.css);
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+
+.container{
+    width: var(--ContainerWidth);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}

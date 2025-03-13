@@ -1,0 +1,38 @@
+version: "3.8"  # Versão do Docker Compose
+
+volumes:
+  mysql_data:  # Volume para o MySQL
+    driver: local
+
+networks:
+  tcc-network:  # Rede para comunicação entre os serviços
+    driver: bridge
+
+services:
+  db:
+    image: mysql:8.0  # Imagem do MySQL
+    container_name: mysql_tcc
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}  # Variável de ambiente para senha do root
+      MYSQL_DATABASE: your_db_name  # Nome do banco de dados
+    ports:
+      - "3306:3306"  # Mapeamento de portas
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persistência de dados
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Init SQL para configuração inicial
+    networks:
+      - tcc-network  # Rede
+
+  php-apache:
+    build: .  # Constrói a partir do Dockerfile no diretório atual
+    container_name: php-apache-tcc
+    ports:
+      - "80:80"  # Mapeamento de portas
+    depends_on:
+      - db  # Garante que o banco de dados estará disponível antes do PHP
+    
+    volumes:
+      - ./src:/var/www/html/
+    networks:
+      - tcc-network  # Rede
