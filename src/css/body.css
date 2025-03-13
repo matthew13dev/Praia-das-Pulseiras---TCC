@@ -1,3 +1,26 @@
+:root{
+    --whatsButtonMargin:30px;
+    --whatsButtonSize:75px;
+}
+
 h1{
     color: darkcyan;
+    margin: 30px 0px;
+}
+
+.whatsapp-button{
+    display: block;
+    position: fixed;
+    right: var(--whatsButtonMargin);
+    bottom: var(--whatsButtonMargin);
+}
+
+.whatsapp-button img{
+    height: var(--whatsButtonSize);
+    width: var(--whatsButtonSize);
+    transition: all 0.01s;
+}
+
+.whatsapp-button img:hover{
+    transform: scale(1.05);
 }

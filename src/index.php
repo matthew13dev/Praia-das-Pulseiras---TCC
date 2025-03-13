@@ -14,16 +14,21 @@
     <div class="container">
         <img src="" alt="Logo Marca">
         <menu>
-        <ul>
-            <li><a href="">Produtos</a></li>
-            <li><a href="">Sobre Nós</a></li>
-            <li><a href="">Contato</a></li>
-        </ul>
+            <ul>
+                <li><a href="">Produtos</a></li>
+                <li><a href="">Sobre Nós</a></li>
+                <li><a href="">Contato</a></li>
+            </ul>
         </menu>
     </div>
 </header>
+
 <body>
-    ,<img class="whatsapp-button" src="" alt="whatsapp-button">
+
+    <a class="whatsapp-button" href="https://wa.me/SEU_NUMERO" target="_blank">
+        <img src="images/whatsapp1.png" alt="WhatsApp">
+    </a>
+
     <div class="container">
         <h1>Praia das Pulseiras</h1>
         <h3>Mais que uma loja virtual!</h3>
