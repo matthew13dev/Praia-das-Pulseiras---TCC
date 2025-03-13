@@ -23,6 +23,7 @@
     </div>
 </header>
 <body>
+    ,<img class="whatsapp-button" src="" alt="whatsapp-button">
     <div class="container">
         <h1>Praia das Pulseiras</h1>
         <h3>Mais que uma loja virtual!</h3>

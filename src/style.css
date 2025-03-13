@@ -1,15 +1,3 @@
 @import url(css/resert.css);
 @import url(css/header.css);
-
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.container{
-    width: 720px;
-    margin: center;
-}
-h1{
-    color: darkcyan;
-}
+@import url(css/body.css);
