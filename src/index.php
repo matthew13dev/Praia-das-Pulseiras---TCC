@@ -8,12 +8,15 @@
     <title>Praia das Pulseiras</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
 
 </head>
 
 <header>
     <div class="container">
-        <a href=""><img src="images/logo.png" alt="Logo Marca" width="50px" height="50px"></a>
+        <a href=""><img src="images/icons8-praia-96.png" alt="Logo Marca" width="80px" height="80px"></a>
         <menu>
             <ul>
                 <li><a href="">Inicio</a></li>
