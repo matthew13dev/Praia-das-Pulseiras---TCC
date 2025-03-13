@@ -8,15 +8,16 @@
     <title>Praia das Pulseiras</title>
 
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <header>
     <div class="container">
-        <img src="" alt="Logo Marca">
+        <a href=""><img src="images/logo.png" alt="Logo Marca" width="50px" height="50px"></a>
         <menu>
             <ul>
-                <li><a href="">Produtos</a></li>
-                <li><a href="">Sobre Nós</a></li>
+                <li><a href="">Inicio</a></li>
+                <li><a href="">Catálogo de Produtos</a></li>
                 <li><a href="">Contato</a></li>
             </ul>
         </menu>
