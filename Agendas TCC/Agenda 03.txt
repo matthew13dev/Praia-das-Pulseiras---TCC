@@ -1,0 +1,34 @@
+Agenda 03: Trabalho de Conclusão de Curso
+O que devemos fazer nesta agenda?
+Nessa agenda você e seu grupo deverão escrever a metodologia, contendo:
+ 
+A identificação do(s) _software(_s) que melhor atenda as
+demandas do projeto, tais como:
+Visual Studio Code
+Docker
+Github 
+
+Atendimento aos requisitos funcionais e não funcionais, interface gráfica e demais necessidades do sistema e de infraestrutura em relação à plataforma de
+software e hardware.
+ 
+Descrição do software utilizado para atender à necessidade do projeto.
+Visual Studio Code: editor de código simples, prático e leve para o tamanmho do projeto.
+Docker: Configuração do ambiente de desenvolvimento
+Github: Ferramenta de versonamento do código do proejto
+MySQL: Banco de Dados
+ 
+Descrição detalhada da equipe e das partes interessadas.
+Renato:
+Erika:
+Pablo:
+Matheus:
+ 	
+Descrição dos recursos utilizados para o desenvolvimento do projeto (como: descrição dos equipamentos, técnicas e processos utilizados).
+Projeto Monolitico
+Padrão MVC
+Página de apresentação do comercio e um catálogo de produtos
+CRUD de produtos para o keyUser
+
+ 
+Nas técnicas e processos utilizados você e seu grupo deverão inserir os casos de uso desenvolvidos na agenda 04 de PTCC. Para isso, deverão descrever os casos de uso que desenvolveram, fazerem os ajustes, caso necessário, colarem os gráficos e fazerem as explicações dos processos.
+
