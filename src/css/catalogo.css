@@ -1,0 +1,44 @@
+
+.catalogo--grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+    text-align: center;
+
+}
+.catalogo--grid .card{
+    width: auto;
+    max-width: 22rem;
+    height: 500px;
+    border: 1px solid red;
+    position: relative;
+    overflow: hidden;
+}
+
+.catalogo--grid.card img{
+    width: 100%;
+    height: 50%;
+    
+}
+
+.catalogo--grid h1{
+    font-size: 1.5rem;
+}
+.catalogo--grid h3{
+    font-size: 1rem;
+}
+
+.catalogo--grida{
+    display: flex;
+    height: 10%;
+    width: 100%;
+
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    background-color: green;
+    z-index: 1;
+
+    justify-content: center;
+    align-items: center;
+}

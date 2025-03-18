@@ -1,4 +1,14 @@
 :root{
     --HeaderHeight: 80px;
     --ContainerWidth: 1080px;
+
+
+
+
+
+
+    /*Paleta de Cores*/
+    --CorPrincipal:#4444;
+    --CorSecundaria:#7777;
+    --CorTerciaria:#9999;
 }

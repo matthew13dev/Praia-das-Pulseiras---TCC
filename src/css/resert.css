@@ -41,4 +41,19 @@
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+}
+
+section{
+  border: 1px solid red;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+p{
+  line-height: 30px;
+  padding: 10px 0px;
 }
