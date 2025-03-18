@@ -37,6 +37,8 @@
         <h1>Praia das Pulseiras</h1>
         <h3>Mais que uma loja virtual!</h3>
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor nulla repudiandae facere? Quos natus aspernatur dicta quod recusandae, nihil, ipsum ut saepe facilis repellat omnis placeat. Molestiae voluptas consequatur aut?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor nulla repudiandae facere? Quos natus aspernatur dicta quod recusandae, nihil, ipsum ut saepe facilis repellat omnis placeat. Molestiae voluptas consequatur aut?</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor nulla repudiandae facere? Quos natus aspernatur dicta quod recusandae, nihil, ipsum ut saepe facilis repellat omnis placeat. Molestiae voluptas consequatur aut?</p>
     </div>
 </body>
 
