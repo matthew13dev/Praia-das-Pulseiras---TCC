@@ -1,7 +1,9 @@
 <?php
-
+require_once __DIR__ . '/../config/ConexaoBD.php';
 class Produto
 {
+
+    private $pdo;
     public $id;
     public $nome;
     public $descricao;
@@ -11,6 +13,11 @@ class Produto
     public $imagem;
     public $data_cadastro;
 
+    public function __construct()
+    {
+        $conexao = new ConexaoBD();
+        $this->pdo = $conexao->conectar();
+    }
     //Métodos 
 
     //adicionar
@@ -23,8 +30,13 @@ class Produto
 
     public function buscar($id) {}
     //listar
-    public function listarProdutos() {
-        
+    public function listarTodosProdutos()
+    {
+        $sql = "SELECT * FROM produto";
+        $stmt = $this->pdo->query($sql);
+        $produtos = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return $produtos;
     }
 
 

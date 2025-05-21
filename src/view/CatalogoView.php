@@ -14,146 +14,19 @@
             <h1>Nossos Produtos</h1>
 
             <div class="gridProduto">
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
-                <div class="cardProduto">
-                    <img src="" alt="foto">
-                    <h4>Nome</h4>
-                    <p>valor</p>
-                    <p>descricao</p>
-                    <button>adicionar ao carrinho</button>
-
-                </div>
+                <?php foreach ($produtos as $produto): ?>
+                    <div class="cardProduto">
+                        <img src="<?= htmlspecialchars($produto['imagem'] ?? 'imagens/padrao.jpg') ?>" alt="foto">
+                        <h4><?= htmlspecialchars($produto['nome']) ?></h4>
+                        <p>R$ <?= number_format($produto['preco'], 2, ',', '.') ?></p>
+                        <p><?= nl2br(htmlspecialchars($produto['descricao'])) ?></p>
+                        <button name="btnAdicionarCarrinho">adicionar ao carrinho</button>
+                    </div>
+                <?php endforeach; ?>
             </div>
-
-            <?php
-
-
-
-
-
-            ?>
         </div>
-
     </section>
+
 </body>
 
 </html>

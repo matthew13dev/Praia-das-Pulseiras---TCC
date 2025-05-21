@@ -2,7 +2,7 @@
 
 class ConexaoBD
 {
-    private $serverName = "localhost";
+    private $serverName = "db";
     private $userName = "root";
     private $password = "admin123";
     private $dbName = "praia_das_pulseiras";

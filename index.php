@@ -29,7 +29,10 @@
     </section>
     <?php
 
-    require __DIR__ . '/src/view/CatalogoView.php';
+    require __DIR__ . "/src/controller/ProdutoController.php";
+    $produtoController = new ProdutoController();
+    $produtoController->exibirCatalogo();
+
     ?>
 </body>
 
