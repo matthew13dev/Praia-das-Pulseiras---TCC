@@ -15,8 +15,8 @@ class Produto
 
     public function __construct()
     {
-        $conexao = new ConexaoBD();
-        $this->pdo = $conexao->conectar();
+        $conexaoPDO = new ConexaoBD();
+        $this->pdo = $conexaoPDO->conectar();
     }
     //Métodos 
 

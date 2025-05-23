@@ -12,30 +12,6 @@
             color: #333;
         }
 
-        .product-filters {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            padding: 8px 20px;
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            background: #667eea;
-            color: white;
-        }
-
         .product-grid {
             display: grid;
             grid-template-columns: repeat(3,1fr);

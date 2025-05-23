@@ -10,10 +10,10 @@ class ConexaoBD
     public function conectar()
     {
         try {
-            $conn = new PDO("mysql:host={$this->serverName};dbname={$this->dbName}", $this->userName, $this->password);
+            $pdo = new PDO("mysql:host={$this->serverName};dbname={$this->dbName}", $this->userName, $this->password);
             // Define o modo de erro do PDO para exceção
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $conn;
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            return $pdo;
         } catch (PDOException $e) {
             die("Connection failed: " . $e->getMessage());
         }

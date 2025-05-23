@@ -10,13 +10,9 @@
 <body>
     <!-- Products Section -->
     <section class="products" id="products">
-        <h2 class="section-title">Nossos Produtos</h2>
+        <h1 class="section-title">Nossos Produtos</h1>
 
-        <div class="product-filters">
-            <button class="filter-btn active" data-filter="all">Todos</button>
-            <button class="filter-btn" data-filter="macrame">Pulseiras</button>
-            <button class="filter-btn" data-filter="beads">Colares</button>
-        </div>
+
 
         <div class="product-grid" id="productGrid">
             <?php foreach ($produtos as $produto): ?>

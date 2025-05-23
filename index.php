@@ -17,6 +17,7 @@
                 <li><a href="#home">Início</a></li>
                 <li><a href="#products">Produtos</a></li>
                 <li><a href="#about">Sobre</a></li>
+                <li><a href="./src//view//LoginView.php" target="_blank">Entrar/Cadastrar</a></li>
                 <li><a href="#contact">Contato</a></li>
             </ul>
             <div class="cart-icon" onclick="openCart()">
@@ -35,6 +36,8 @@
         </div>
     </section>
 
+
+    <!-- Catalogo Section-->
     <?PHP
     require __DIR__ . "/src/controller/ProdutoController.php";
     $produtoController = new ProdutoController();
@@ -42,6 +45,20 @@
 
     ?>
 
+    <!-- Sobre Section-->
+    <section class="sobre">
+        <h1 class="section-title">Sobre Nós</h1>
+        <div class="sobre-content">
+
+            <div class="text-area">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, doloremque possimus aperiam quidem asperiores nihil similique iusto quae illo minus atque itaque voluptates ex animi commodi aspernatur nemo nulla consequuntur.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, doloremque possimus aperiam quidem asperiores nihil similique iusto quae illo minus atque itaque voluptates ex animi commodi aspernatur nemo nulla consequuntur.</p>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium, doloremque possimus aperiam quidem asperiores nihil similique iusto quae illo minus atque itaque voluptates ex animi commodi aspernatur nemo nulla consequuntur.</p>
+            </div>
+            <div class="map-area"></div>
+        </div>
+
+    </section>
     <!-- Cart Modal -->
     <div id="cartModal" class="cart-modal">
         <div class="cart-content">
