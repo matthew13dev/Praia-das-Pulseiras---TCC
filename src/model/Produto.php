@@ -66,33 +66,6 @@ class Produto
 
 
 
-    //buscar por nome
-
-    public function buscarPorNome($nome)
-    {
-        try {
-            $sql = "SELECT * FROM produto WHERE nome LIKE :nome";
-            $stmt = $this->pdo->prepare($sql);
-            $stmt->bindParam(":nome", "%{$nome}%", PDO::PARAM_STR);
-
-
-            if (!$stmt->execute()) {
-                throw new PDOException("Falha ao executar busca.");
-            }
-
-            $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-            if (empty($resultado)) {
-                return []; //array vazio, significa que nao tem resultados
-            }
-            return $resultado;
-        } catch (PDOException $e) {
-            error_log("Erro ao buscar produto por nome '{$nome}': " . $e->getMessage());
-            return [];
-        }
-    }
-
-
     //listar todos os produtos
     public function listarTodosProdutos()
     {

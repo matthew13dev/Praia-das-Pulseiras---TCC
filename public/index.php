@@ -91,7 +91,7 @@
         <div class="cart-content" style="max-width: 400px;">
             <span class="close" onclick="closeAdminLogin()">&times;</span>
             <h2>Login do Admin</h2>
-            <form id="adminLoginForm" onsubmit="return adminLogin(event)">
+            <form action="./admin/index.html" id="adminLoginForm" onsubmit="return adminLogin(event)">
                 <div style="margin-bottom: 1rem;">
                     <label for="adminEmail">E-mail</label><br>
                     <input type="email" id="adminEmail" required style="width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #ccc; margin-top: 5px;">
@@ -105,7 +105,6 @@
         </div>
     </div>
 
-    <!-- Admin Panel (hidden by default) -->
     <div id="adminPanel" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:#f8f9fa; z-index:3000;">
         <div style="width:100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color:white; display:flex; align-items:center; justify-content:space-between; padding:1rem 2rem;">
             <div style="display:flex; gap:1rem;">
@@ -115,11 +114,12 @@
             <button class="btn" style="background:#ff4757;" onclick="adminLogout()">Sair</button>
         </div>
         <div id="adminContent" style="max-width:1200px; margin:2rem auto; background:white; border-radius:15px; box-shadow:0 5px 15px rgba(0,0,0,0.1); min-height:500px; padding:2rem; height:calc(100vh - 100px); overflow-y:auto;">
-            <!-- Conteúdo do painel admin será carregado aqui -->
         </div>
     </div>
 
+
     <script src="./public/script.js"></script>
+    <script src="./public/admin/admin.js"></script>
 </body>
 
 </html>

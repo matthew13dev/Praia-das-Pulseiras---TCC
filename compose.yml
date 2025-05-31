@@ -15,7 +15,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}  # Variável de ambiente para senha do root
-      MYSQL_DATABASE: your_db_name  # Nome do banco de dados
+      MYSQL_DATABASE: ${MYSQL_DATABASE}  # Nome do banco de dados
     ports:
       - "3306:3306"  # Mapeamento de portas
     volumes:

@@ -4,12 +4,20 @@ use DateTime;
 
 class Pedido
 {
+    private $pdo;
     private ?int $id;
     private int $clienteId;
     private DateTime $data;
     private string $status;
     private float $valorTotal;
     private ?int $pagamentoId;
+
+    public function __construct()
+    {
+        $conexaoPDO = new ConexaoBD();
+        $this->pdo = $conexaoPDO->conectar();
+    }
+
 
     // Getters
     public function getId(): ?int
