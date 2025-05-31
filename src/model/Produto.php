@@ -9,9 +9,8 @@ class Produto
     public $descricao;
     public $quantidade_estoque;
     public $preco;
-    public $idAdmin;
     public $imagem;
-    public $data_cadastro;
+
 
     public function __construct()
     {
@@ -189,11 +188,6 @@ class Produto
         $this->preco = $preco;
     }
 
-    //id admin
-    public function getIdAdmin()
-    {
-        return $this->idAdmin;
-    }
 
     //nome
     public function getNome()
@@ -204,11 +198,6 @@ class Produto
     public function setNome($nome)
     {
         $this->nome = $nome;
-    }
-    //data cadastro
-    public function getDataCadastro()
-    {
-        return $this->data_cadastro;
     }
     //imagem
     public function getImagem()
