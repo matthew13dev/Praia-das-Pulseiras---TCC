@@ -25,7 +25,7 @@ if (isset($_POST['cart_items'])) {
 
 $cart = $_SESSION['cart'];
 $total = array_reduce($cart, function ($sum, $item) {
-    return $sum + ($item->price * $item->quantity);
+    return $sum + ($item->preco * $item->quantity);
 }, 0);
 
 ?>
@@ -271,8 +271,8 @@ $total = array_reduce($cart, function ($sum, $item) {
             <h3>Resumo do Pedido</h3>
             <?php foreach ($cart as $item): ?>
                 <div class="order-item">
-                    <span><?php echo htmlspecialchars($item->name); ?> (Qtd: <?php echo $item->quantity; ?>)</span>
-                    <span>R$ <?php echo number_format($item->price * $item->quantity, 2, ',', '.'); ?></span>
+                    <span><?php echo htmlspecialchars($item->nome); ?> (Qtd: <?php echo $item->quantity; ?>)</span>
+                    <span>R$ <?php echo number_format($item->preco * $item->quantity, 2, ',', '.'); ?></span>
                 </div>
             <?php endforeach; ?>
             <div class="order-total">Total: R$ <?php echo number_format($total, 2, ',', '.'); ?></div>
