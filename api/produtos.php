@@ -1,5 +1,5 @@
 <?php
-require_once './../src/model/Produto.php';
+require_once '../model/Produto.php';
 header("Content-Type: application/json");
 header("Access-Control-Allow-Methods: GET, POST");
 

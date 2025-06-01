@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../config/ConexaoBD.php';
+require_once __DIR__ . './../config/ConexaoBD.php';
 class Produto
 {
 
