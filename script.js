@@ -265,9 +265,9 @@ list.innerHTML = products.map(p => `
 <div style='display:flex;align-items:center;gap:1rem;border-bottom:1px solid #eee;padding:1rem 0;'>
 <img src='${p.image}' style='width:60px;height:60px;object-fit:cover;border-radius:8px;'>
 <div style='flex:1;'>
-<div style='font-weight:bold;'>${p.name}</div>
-<div style='color:#667eea;'>R$ ${p.price.toFixed(2).replace('.', ',')}</div>
-<div style='color:#666;font-size:0.9rem;'>${p.description}</div>
+<div style='font-weight:bold;'>${p.nome}</div>
+<div style='color:#667eea;'>R$ ${p.preco}</div>
+<div style='color:#666;font-size:0.9rem;'>${p.descricao}</div>
 </div>
 <button class='btn' style='background:#ffb703;color:#333;' onclick='adminEditProduct(${p.id})'>Editar</button>
 <button class='btn' style='background:#ff4757;' onclick='adminDeleteProduct(${p.id})'>Excluir</button>
