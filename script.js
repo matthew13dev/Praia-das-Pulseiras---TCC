@@ -282,6 +282,7 @@ form.innerHTML = `
 <form onsubmit='return saveNewProduct(event)'>
 <input required placeholder='Nome' id='newProdName' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
 <input required type='number' step='0.01' placeholder='Preço' id='newProdPrice' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
+<input required type='number' step='0.01' placeholder='quantidade' id='newProdQt' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
 <input required placeholder='Categoria' id='newProdCat' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
 <input required placeholder='URL da Imagem' id='newProdImg' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
 <textarea required placeholder='Descrição' id='newProdDesc' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'></textarea><br>
@@ -292,20 +293,55 @@ form.innerHTML = `
 }
 function saveNewProduct(event) {
 event.preventDefault();
-// Adiciona produto ao array (mock)
-products.push({
-id: products.length ? products[products.length-1].id+1 : 1,
-name: document.getElementById('newProdName').value,
-price: parseFloat(document.getElementById('newProdPrice').value),
-category: document.getElementById('newProdCat').value,
-image: document.getElementById('newProdImg').value,
-description: document.getElementById('newProdDesc').value
-});
-renderAdminProducts();
-cancelAdminProductForm();
-showNotification('Produto adicionado!');
-return false;
+
+
+//criando objeto com os dados do formulario
+var novoProduto = {
+  nome: document.getElementById('newProdName').value,
+  preco: parseFloat(document.getElementById('newProdPrice').value),
+  quantidade: parseInt(document.getElementById('newProdQt').value),
+  categoria: document.getElementById('newProdCat').value,
+  imagem: document.getElementById('newProdImg').value,
+  descricao: document.getElementById('newProdDesc').value
 }
+console.log(JSON.stringify(novoProduto));
+console.log("Dados a serem enviados:", novoProduto); // Debug
+    
+//enviando para o servidor php
+
+fetch('api/produtos.php',{
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  "body": JSON.stringify(novoProduto)
+})
+.then(response => {
+  console.log("Status da resposta: " , response.status); //Debug
+  if(!response.ok){
+    return response.json().then(err=>{throw err;});
+  }
+  return response.json();
+})
+.then(data=>{
+  
+  console.log("Resposta ao servidor: ", data); //Debug
+
+  if(data.success){
+    console.log("Resposta ao servidor: ", data); //Debug
+    renderAdminProducts();  //atualizando a lista de produtos
+    cancelAdminProductForm();
+    showNotification('Produto adicionado!');
+  } else{
+    showNotification('Erro ao adicionar produto: ' + data.message, 'error');
+  }
+});
+
+return false;
+
+}
+
+
 function cancelAdminProductForm() {
 const form = document.getElementById('adminProductForm');
 form.style.display = 'none';

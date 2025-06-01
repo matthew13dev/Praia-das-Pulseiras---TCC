@@ -20,7 +20,7 @@ class Produto
     //Métodos 
 
     //adicionar
-    public function adicionar($nome, $descricao, $quantidade_estoque, $preco, $imagem)
+    public function adicionar($nome, $descricao, $quantidade_estoque, $preco, $imagem = "./images/default.jpg")
     {
         try {
 
@@ -42,6 +42,8 @@ class Produto
             error_log("Erro ao adicionar produto: " . $e->getMessage());
             return false;
         }
+
+        return true;
     }
 
 
