@@ -77,7 +77,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('/api/placeholder/1200/600');
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.4)), url('./images/banner.png');
             background-size: cover;
             background-position: center;
             height: 100vh;

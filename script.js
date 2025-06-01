@@ -245,8 +245,8 @@ if(section === 'produtos') {
 adminContent.innerHTML = `
 <h2 style='color:#667eea;'>Produtos</h2>
 <button class='btn' style='margin-bottom:1rem;' onclick='adminAddProduct()'>Adicionar Produto</button>
+<div id='adminProductForm' class='cartModel' style='display:none; margin-top:2rem; position;'></div>
 <div id='adminProductList'></div>
-<div id='adminProductForm' style='display:none; margin-top:2rem;'></div>
 `;
 renderAdminProducts();
 } else if(section === 'pedidos') {
@@ -263,7 +263,7 @@ function renderAdminProducts() {
 const list = document.getElementById('adminProductList');
 list.innerHTML = products.map(p => `
 <div style='display:flex;align-items:center;gap:1rem;border-bottom:1px solid #eee;padding:1rem 0;'>
-<img src='${p.image}' style='width:60px;height:60px;object-fit:cover;border-radius:8px;'>
+<img src='${p.imagem}' style='width:60px;height:60px;object-fit:cover;border-radius:8px;'>
 <div style='flex:1;'>
 <div style='font-weight:bold;'>${p.nome}</div>
 <div style='color:#667eea;'>R$ ${p.preco}</div>
