@@ -157,7 +157,7 @@ return;
 // Cria um formulário dinamicamente
 const form = document.createElement('form');
 form.method = 'POST';
-form.action = '/src/checkout.php';
+form.action = '/checkout/checkout.php';
 
 // Adiciona os itens do carrinho como campos ocultos
 cart.forEach(item => {

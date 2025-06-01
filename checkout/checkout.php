@@ -249,10 +249,10 @@ $total = array_reduce($cart, function ($sum, $item) {
         <nav>
             <div class="logo">🏖️ Praia das Pulseiras</div>
             <ul class="nav-links">
-                <li><a href="PRAIA DAS PULSEIRAS OLD.html#home">Início</a></li>
-                <li><a href="PRAIA DAS PULSEIRAS OLD.html#products">Produtos</a></li>
-                <li><a href="PRAIA DAS PULSEIRAS OLD.html#about">Sobre</a></li>
-                <li><a href="PRAIA DAS PULSEIRAS OLD.html#contact">Contato</a></li>
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="../index.html#products">Produtos</a></li>
+                <li><a href="../index.html#about">Sobre</a></li>
+                <li><a href="../index.html#contact">Contato</a></li>
             </ul>
             <!-- O ícone do carrinho aqui pode ser simplificado já que o checkout é a próxima etapa -->
             <div class="cart-icon">
