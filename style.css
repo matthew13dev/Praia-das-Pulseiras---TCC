@@ -336,6 +336,92 @@
             background: #5a6fd8;
         }
 
+
+
+    section#about,
+    section#contact{
+        margin-top: 50px;
+        margin-bottom: 50px;
+        min-height: 50vh;
+    }
+        /* Sobre*/
+        .about-content,
+        .contact-content{
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            width: 1200px;
+            margin: auto;
+
+            
+
+        }
+
+        .about-content .text-area{
+            padding: 30px;
+        }
+
+        .about-content .text-area p{
+            line-height: 30px;
+            text-align: justify;
+        }
+
+        .about-content .mapa, .mapa iframe{
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.15);
+            transition: all .1s;
+            border: 1px solid rgba(0,0,0,0.4);
+            border-radius: 15px;
+        }
+
+        .about-content .mapa:hover{
+            transform: translateY(-15px);
+            box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+        }
+
+
+        /*Contato*/
+
+            .contact-content form label,
+            .contact-content form input,
+            .contact-content form textarea{
+                display: block;
+                width: 600px;
+                padding: 10px;
+                outline: none;
+                
+            }
+
+            .contact-content input, textarea, button{
+                border: 1px solid #999;
+                border-radius: 10px;
+                transition: all 0.3s;
+            }
+            .contact-content input:hover, textarea:hover{
+                border: 1px solid #667eea;
+                box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+                transform: translateY(-10px);
+                transform: scale(1.05);
+
+            }
+            .contact-content textarea{
+                resize: none;
+                height: 200px;
+            }
+
+            .contact-content form button{
+                width: 200px;
+                padding: 10px;
+                background-color: #667eea;
+                color: white;
+                border: none;
+                cursor: pointer;
+                transition: all .1s linear;
+            }
+
+            .contact-content form button:hover{
+                background-color: #764ba2;
+            }
+
         /* Footer */
         footer {
             background: #333;
