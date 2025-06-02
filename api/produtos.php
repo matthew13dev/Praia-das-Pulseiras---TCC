@@ -5,10 +5,21 @@ ini_set('display_errors', 1);
 require_once '../model/Produto.php';
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Methods: POST, GET, UPDATE, DELETE, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 $produtoModel = new Produto();
 $server = $_SERVER["REQUEST_METHOD"];
+
+function sendResponse($success, $message = '', $data = [])
+{
+    http_response_code($success ? 200 : 400);
+    echo json_encode([
+        'success' => $success,
+        'message' => $message,
+        'data' => $data
+    ]);
+    exit;
+}
 
 
 switch ($server) {
@@ -18,36 +29,98 @@ switch ($server) {
 
     case "POST":
         $json = file_get_contents("php://input");
+        error_log("Dados recebidos: " . $json);
+
         if (empty($json)) {
-            http_response_code(400);
-            echo json_encode(['error' => 'Nenhum dado recebido']);
-            exit;
+            sendResponse(false, "nenhum dado recebido");
         }
 
         $data = json_decode($json, true);
-        if (empty($data->nome) || empty($data->preco) || empty($data->quantidade)) {
-            http_response_code(400);
-            echo json_encode(["success" => false, "message" => "Dados incompletos"]);
-            break;
+
+        $required = ['nome', 'preco', 'quantidade'];
+
+        foreach ($required as $field) {
+            if (empty($data[$field])) {
+                sendResponse(false, "Campo obrigatorio faltando: ", $field);
+            }
         }
 
-        $novoProduto  = $produtoModel->adicionar($data->nome, $data->descricao, $data->quantidade, $data->preco);
 
+        $novoProduto  = $produtoModel->adicionar(
+            $data["nome"],
+            $data["descricao"],
+            $data["quantidade"],
+            $data["preco"]
+        );
         // Retornar sucesso
         if ($novoProduto) {
-            http_response_code(201);
-            echo json_encode(["success" => true, "message" => "Produto criado com sucesso", "id" => $novoProduto]);
+            sendResponse(true, "Produto criado com sucesso", ["id" => $novoProduto]);
         } else {
-            http_response_code(500);
-            echo json_encode(["success" => false, "message" => "Erro ao criar produto"]);
+            sendResponse(false, "erro ao criar produto");
         }
 
         break;
 
 
-    case "OPTIONS":
-        // Para requisições de preflight CORS
-        http_response_code(200);
+    case "UPDATE":
+        $json = file_get_contents("php://input");
+        error_log("Dados recebidos: " . $json);
+
+        if (empty($json)) {
+            sendResponse(false, "nenhum dado recebido");
+        }
+
+        $data = json_decode($json, true);
+
+        $atualizarProduto = $produtoModel->atualizarProduto(
+            $data['id'],
+            $data["nome"],
+            $data["descricao"],
+            $data["quantidade"],
+            $data["preco"],
+            $data["imagem"]
+        );
+
+        // Retornar sucesso
+        if ($atualizarProduto) {
+            sendResponse(true, "Produto atualizado com sucesso", ["id" => $atualizarProduto]);
+        } else { // Retornar falha
+
+            sendResponse(false, "erro ao atualizar produto");
+        }
+
+        break;
+
+    case "DELETE":
+        //Receber dados
+        $json = file_get_contents("php://input");
+
+        //Debug
+        error_log("Dados recebidos apa o DELETE: " . $json);
+
+        if (empty($json)) {
+            sendResponse(false, "Nenhum dado recebido");
+        }
+
+        $data = json_decode($json, true);
+
+        if (!isset($data['id']) || empty($data['id'])) {
+            sendResponse(false, "ID do produto não informado");
+            exit;
+        }
+
+
+
+        $deletado = $produtoModel->excluir($data["id"]);
+
+        // Retornar resposta
+        if ($deletado) {
+            sendResponse(true, "Produto Deletado com sucesso", ["id" => $data["id"]]);
+        } else {
+
+            sendResponse(false, "erro ao deletar produto", $deletado);
+        }
+
         break;
 
     default:

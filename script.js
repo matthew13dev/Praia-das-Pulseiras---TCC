@@ -319,7 +319,7 @@ fetch('api/produtos.php',{
 .then(response => {
   console.log("Status da resposta: " , response.status); //Debug
   if(!response.ok){
-    return response.json().then(err=>{throw err;});
+     return response.text().then(text => { throw new Error(text) });
   }
   return response.json();
 })
@@ -354,11 +354,12 @@ form.style.display = 'block';
 form.innerHTML = `
 <h3>Editar Produto</h3>
 <form onsubmit='return saveEditProduct(event,${id})'>
-<input required value='${prod.name}' id='editProdName' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
-<input required type='number' step='0.01' value='${prod.price}' id='editProdPrice' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
-<input required value='${prod.category}' id='editProdCat' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
-<input required value='${prod.image}' id='editProdImg' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
-<textarea required id='editProdDesc' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'>${prod.description}</textarea><br>
+<input required value='${prod.nome}' id='editProdName' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
+<input required type='number' step='0.01' value='${prod.preco}' id='editProdPrice' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
+<input required type='number' step='0.01' value='${prod.quantidade_estoque}' id='editProdQt' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
+<input required value='${prod.categoria}' id='editProdCat' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
+<input required value='${prod.imagem}' id='editProdImg' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'><br>
+<textarea required id='editProdDesc' style='width:100%;margin-bottom:0.5rem;padding:8px;border-radius:8px;border:1px solid #ccc;'>${prod.descricao}</textarea><br>
 <button class='btn' type='submit'>Salvar</button>
 <button class='btn' type='button' style='background:#ccc;color:#333;margin-left:1rem;' onclick='cancelAdminProductForm()'>Cancelar</button>
 </form>
@@ -366,24 +367,97 @@ form.innerHTML = `
 }
 function saveEditProduct(event, id) {
 event.preventDefault();
+
 const prod = products.find(p => p.id === id);
-prod.name = document.getElementById('editProdName').value;
-prod.price = parseFloat(document.getElementById('editProdPrice').value);
-prod.category = document.getElementById('editProdCat').value;
-prod.image = document.getElementById('editProdImg').value;
-prod.description = document.getElementById('editProdDesc').value;
-renderAdminProducts();
-cancelAdminProductForm();
-showNotification('Produto atualizado!');
-return false;
+
+prod.nome = document.getElementById('editProdName').value;
+prod.preco = parseFloat(document.getElementById('editProdPrice').value);
+prod.quantidade = (document.getElementById('editProdQt').value);
+prod.categoria = document.getElementById('editProdCat').value;
+prod.imagem = document.getElementById('editProdImg').value;
+prod.descricao = document.getElementById('editProdDesc').value;
+
+
+var produtoAtualizado = {
+  id: prod.id,
+  nome: prod.nome,
+  preco: prod.preco,
+  quantidade: prod.quantidade,
+  categoria: prod.categoria,
+  imagem: prod.imagem,
+  descricao: prod.descricao
+
 }
+
+fetch("api/produtos.php",{
+  method: "UPDATE",
+  headers:{
+    "Content-Type": "application/json"
+  },
+  "body": JSON.stringify(produtoAtualizado)
+})
+
+.then(response => {
+  console.log("Status da resposta: " , response.status); //Debug
+  if(!response.ok){
+     return response.text().then(text => { throw new Error(text) });
+  }
+  return response.json();
+})
+
+ .then(data=>{
+  
+  console.log("Resposta ao servidor: ", data); //Debug
+
+ if(data.success){
+    console.log("Resposta ao servidor: ", data); //Debug
+      
+    renderAdminProducts();
+    cancelAdminProductForm();
+    showNotification('Produto atualizado!');
+ } 
+ else {
+  showNotification("Erro ao atualizar produto" + data.message, "error");
+ }
+});
+return false;
+
+}
+
 function adminDeleteProduct(id) {
 if(confirm('Tem certeza que deseja excluir este produto?')) {
-const idx = products.findIndex(p => p.id === id);
-if(idx > -1) products.splice(idx,1);
-renderAdminProducts();
-showNotification('Produto excluído!');
-}
+fetch("api/produtos.php",{
+  method: "DELETE",
+  headers:{
+    "Content-Type": "application/json"
+  },
+  "body": JSON.stringify({id: id})
+})
+.then(response => {
+  console.log("Status da resposta: " , response.status); //Debug
+  if(!response.ok){
+     return response.text().then(text => { throw new Error(text) });
+  }
+  return response.json();
+})
+
+.then(data=>{
+  
+          console.log("Resposta ao servidor: ", data); //Debug
+
+          if(data.success){
+            renderAdminProducts();
+            showNotification('Produto excluído!');  
+          } 
+          else {
+            showNotification("Erro ao atualizar produto" + data.message, "error");
+          }
+})
+.catch(error => {
+            console.error("Erro:", error);
+            showNotification(error.message, 'error');
+        });
+  }
 }
 // CRUD de Pedidos (mock)
 let mockOrders = [

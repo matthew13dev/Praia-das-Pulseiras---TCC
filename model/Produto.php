@@ -51,13 +51,13 @@ class Produto
     public function excluir($id)
     {
         try {
-            $sql = "DELETE FROM produto Where id = :id";
+            $sql = "DELETE FROM produto WHERE id = :id";
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(':id', $id, PDO::PARAM_INT);
 
 
             if ($stmt->execute()) {
-                return ($stmt->rowCount() > 0);
+                return $stmt->rowCount() > 0;
             }
             return false;
         } catch (PDOException $e) {
